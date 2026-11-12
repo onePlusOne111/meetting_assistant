@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline'" />
+    <title>会议助手</title>
+    <link rel="stylesheet" href="assistant.css" />
+  </head>
+  <body>
+    <div class="panel">
+      <header>
+        <span id="dot" class="dot"></span>
+        <span class="title">会议助手</span>
+        <select id="source" title="音频来源">
+          <option value="system">系统音频（对方）</option>
+          <option value="mic">麦克风</option>
+        </select>
+        <button id="listen">开始监听</button>
+        <button id="answer" class="primary">停止并解答 <kbd>⌘K</kbd></button>
+        <span class="spacer"></span>
+        <button id="clear" title="清空对话历史">清空</button>
+        <button id="hide">隐藏 <kbd>⌘U</kbd></button>
+        <button id="quit" class="icon" title="退出">✕</button>
+      </header>
+
+      <section class="other">
+        <div class="label">
+          对方 <span class="meter"><span id="level"></span></span>
+          <span id="status" class="status"></span>
+        </div>
+        <div id="transcript" class="text"><span class="placeholder">开始监听后，对方的话会实时显示在这里</span></div>
+      </section>
+
+      <section class="reply">
+        <div class="label">建议回复 <span id="provider" class="tag"></span><span id="turn" class="turn"></span></div>
+        <div id="answerText" class="text"><span class="placeholder">对方说完后按 ⌘K，这里会流式给出回复建议（⌘G 可重新显示窗口）</span></div>
+      </section>
+    </div>
+    <script src="audio.js"></script>
+    <script src="assistant.js"></script>
+  </body>
+</html>

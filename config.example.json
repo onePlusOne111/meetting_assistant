@@ -1,0 +1,25 @@
+{
+  "xfyun": {
+    "appId": "YOUR_XFYUN_APPID",
+    "apiKey": "YOUR_XFYUN_APIKEY",
+    "lang": "cn"
+  },
+  "claude": {
+    "apiKey": "YOUR_ANTHROPIC_API_KEY",
+    "model": "claude-opus-5-5",
+    "baseUrl": "https://api.anthropic.com",
+    "firstTokenTimeoutMs": 8000
+  },
+  "glm": {
+    "apiKey": "YOUR_ZHIPU_API_KEY",
+    "model": "GLM-5.3",
+    "baseUrl": "https://open.bigmodel.cn/api/paas/v4"
+  },
+  "assistant": {
+    "maxTokens": 600,
+    "maxHistoryTurns": 20,
+    "showOnAnswer": true,
+    "contentProtection": true,
+    "extraPrompt": ""
+  }
+}

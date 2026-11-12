@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline'" />
+    <title>实时语音转写 Demo</title>
+    <style>
+      * { box-sizing: border-box; }
+      body {
+        margin: 0;
+        height: 100vh;
+        display: flex;
+        font: 14px/1.6 -apple-system, BlinkMacSystemFont, 'PingFang SC', sans-serif;
+        color: #1d1d1f;
+        background: #f5f5f7;
+      }
+      .left {
+        width: 280px;
+        padding: 24px;
+        border-right: 1px solid #e3e3e8;
+        background: #fff;
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+      }
+      h1 { font-size: 18px; margin: 0; }
+      label { font-size: 12px; color: #6e6e73; }
+      select, button { width: 100%; font: inherit; border-radius: 8px; }
+      select { padding: 6px 8px; border: 1px solid #d2d2d7; background: #fff; }
+      button {
+        padding: 12px;
+        border: 0;
+        color: #fff;
+        background: #0a84ff;
+        font-weight: 600;
+        cursor: pointer;
+      }
+      button.stop { background: #ff453a; }
+      button:disabled { opacity: 0.5; cursor: default; }
+      .meter { height: 6px; border-radius: 3px; background: #e5e5ea; overflow: hidden; }
+      .meter div { height: 100%; width: 0; background: #30d158; transition: width 80ms; }
+      #status { font-size: 12px; color: #6e6e73; word-break: break-all; }
+      .hint { margin-top: auto; font-size: 12px; color: #8e8e93; }
+      .right { flex: 1; padding: 24px 32px; overflow-y: auto; }
+      #transcript { font-size: 17px; line-height: 1.9; white-space: pre-wrap; }
+      .pending { color: #8e8e93; background: #f0f0f3; border-radius: 4px; padding: 0 2px; }
+      .empty { color: #aeaeb2; }
+    </style>
+  </head>
+  <body>
+    <div class="left">
+      <h1>实时语音转写</h1>
+      <div>
+        <label>音频来源</label>
+        <select id="source">
+          <option value="mic">麦克风</option>
+          <option value="system">系统音频（电脑正在播放的声音）</option>
+        </select>
+      </div>
+      <button id="toggle">开始实时语音转写</button>
+      <div class="meter"><div id="level"></div></div>
+      <div id="status">未开始</div>
+      <div class="hint">灰色底纹的文字是正在识别的中间结果，会随着后续语音被纠正；黑色文字为已确定结果。</div>
+    </div>
+    <div class="right">
+      <div id="transcript"><span class="empty">转写内容会显示在这里…</span></div>
+    </div>
+    <script src="audio.js"></script>
+    <script src="demo.js"></script>
+  </body>
+</html>

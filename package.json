@@ -1,0 +1,32 @@
+{
+  "name": "meetting_assistant",
+  "version": "1.0.0",
+  "description": "远程会议实时助手：讯飞实时语音转写 + 大模型回复建议",
+  "main": "src/main/main.js",
+  "scripts": {
+    "start": "electron .",
+    "demo": "electron . --demo",
+    "test-audio": "./scripts/make-test-audio.sh",
+    "test:asr": "node scripts/test-asr.js",
+    "test:llm": "NODE_USE_ENV_PROXY=1 node scripts/test-llm.js",
+    "test:e2e": "MA_AUTOTEST=1 MA_TEST_AUDIO=test-audio/sample.wav electron . && MA_AUTOTEST=1 MA_TEST_AUDIO=test-audio/sample.wav electron . --demo"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/onePlusOne111/meetting_assistant.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/onePlusOne111/meetting_assistant/issues"
+  },
+  "homepage": "https://github.com/onePlusOne111/meetting_assistant#readme",
+  "dependencies": {
+    "ws": "^8.22.2"
+  },
+  "devDependencies": {
+    "electron": "^45.3.1"
+  }
+}
